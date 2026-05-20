@@ -55,10 +55,6 @@ The `uv/` directory contains experimental scripts using [uv](https://astral.sh/u
 - Montreal Forced Aligner's Kaldi dependencies cannot be built from source on all platforms
 - uv prioritizes PyPI, which doesn't have pre-built wheels for kalpy-kaldi
 
-Scripts:
-- POSIX: `./uv/setup_uv_env.sh`
-- Windows (PowerShell): `./uv/setup_uv_env.ps1`
-
 ## CI
 
-GitHub Actions workflow `.github/workflows/test-uv-setup-scripts.yml` tests the pixi setup on Ubuntu and Windows, and the uv setup on Ubuntu, macOS, and Windows.
+GitHub Actions workflow `.github/workflows/test-pixi-and-uv.yml` tests the pixi setup on Ubuntu and Windows, and the uv setup on Ubuntu, macOS, and Windows.
