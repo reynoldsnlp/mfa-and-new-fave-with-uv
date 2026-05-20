@@ -6,11 +6,15 @@ import sys
 STUB_PREFIXES = ("kalpy", "_kalpy", "pynini", "pywrapfst", "_pywrapfst")
 
 
+def _stub_init(self, *args, **kwargs):
+    return None
+
+
 class StubModule(types.ModuleType):
     def __getattr__(self, name):
-        value = type(name, (), {"__init__": lambda self, *args, **kwargs: None})
-        setattr(self, name, value)
-        return value
+        stub_class = type(name, (), {"__init__": _stub_init})
+        setattr(self, name, stub_class)
+        return stub_class
 
 
 class MissingDependencyStubFinder(importlib.abc.MetaPathFinder, importlib.abc.Loader):

@@ -6,16 +6,12 @@ $VenvDir = Join-Path $ProjectRoot ".venv"
 $PythonPath = Join-Path $VenvDir "Scripts/python.exe"
 
 if (-not (Get-Command uv -ErrorAction SilentlyContinue)) {
-  try {
-    irm https://astral.sh/uv/install.ps1 | iex
-  } catch {
-    if (Get-Command py -ErrorAction SilentlyContinue) {
-      py -m pip install --user uv
-    } else {
-      python -m pip install --user uv
-    }
+  if (Get-Command py -ErrorAction SilentlyContinue) {
+    py -m pip install --user uv
+  } else {
+    python -m pip install --user uv
   }
-  $env:PATH = "$env:USERPROFILE\.local\bin;$env:PATH"
+  $env:PATH = "$(Join-Path $env:USERPROFILE '.local\bin');$env:PATH"
 }
 
 uv venv "$VenvDir"

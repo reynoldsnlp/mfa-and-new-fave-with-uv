@@ -6,11 +6,7 @@ PROJECT_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
 VENV_DIR="$PROJECT_ROOT/.venv"
 
 if ! command -v uv >/dev/null 2>&1; then
-  if curl -LsSf https://astral.sh/uv/install.sh -o /tmp/uv-install.sh && sh /tmp/uv-install.sh; then
-    :
-  else
-    python3 -m pip install --user uv
-  fi
+  python3 -m pip install --user uv
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
