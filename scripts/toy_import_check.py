@@ -7,7 +7,7 @@ STUB_PREFIXES = ("kalpy", "_kalpy", "pynini", "pywrapfst", "_pywrapfst")
 
 
 def _stub_init(self, *args, **kwargs):
-    return None
+    pass
 
 
 class StubModule(types.ModuleType):
@@ -29,7 +29,7 @@ class MissingDependencyStubFinder(importlib.abc.MetaPathFinder, importlib.abc.Lo
         return module
 
     def exec_module(self, module):
-        return None
+        pass
 
 
 sys.meta_path.insert(0, MissingDependencyStubFinder())
