@@ -1,4 +1,4 @@
-# mfa-and-new-fave-with-uv
+# MFA and new-fave template
 
 Examples of using package managers to install Montreal Forced Aligner and new-fave together.
 
