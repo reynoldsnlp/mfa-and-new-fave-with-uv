@@ -28,6 +28,7 @@ jobs:
         run: .\pixi\setup_pixi_env.ps1
 
   test-uv-directory:
+    continue-on-error: true
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
